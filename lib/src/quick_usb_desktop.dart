@@ -54,7 +54,13 @@ class QuickUsbWindows extends _QuickUsbDesktop {
 class QuickUsbMacos extends _QuickUsbDesktop {
   // For example/.dart_tool/flutter_build/generated_main.dart
   QuickUsbMacos() {
-    _libusb = Libusb(DynamicLibrary.open('libusb-1.0.23.dylib'));
+    if(Platform.version.contains('arm64'))
+    {
+      _libusb = Libusb(DynamicLibrary.open('libusb-1.0.23.dylib'));
+    }else{
+      _libusb = Libusb(DynamicLibrary.open('libusb-1.0.0.dylib'));
+    }
+    
   }
 }
 
