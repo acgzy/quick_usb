@@ -57,13 +57,26 @@ flutter:
     # -------------------
       android:
         package: com.example.quick_usb
-        dartPluginClass: QuickUsbPlugin
+        pluginClass: QuickUsbPlugin
       windows:
-        dartPluginClass: QuickUsbPlugin
+        pluginClass: QuickUsbPlugin
       macos:
-        dartPluginClass: QuickUsbPlugin
+        pluginClass: QuickUsbPlugin
       linux:
-        dartPluginClass: QuickUsbPlugin
+        pluginClass: QuickUsbPlugin
+
+    #  android:
+    #    package: com.example.quick_usb
+    #    dartPluginClass: QuickUsbPlugin
+    #  windows:
+    #    dartPluginClass: QuickUsbPlugin
+    #  macos:
+    #    dartPluginClass: QuickUsbPlugin
+    #  linux:
+    #    dartPluginClass: QuickUsbPlugin
+
+
+
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

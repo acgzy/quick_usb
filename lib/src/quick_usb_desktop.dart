@@ -11,6 +11,39 @@ import 'utils.dart';
 
 late Libusb _libusb;
 
+/*
+class QuickUsbWindows extends _QuickUsbDesktop {
+  // For example/.dart_tool/flutter_build/generated_main.dart
+
+  static registerWith() {
+    print('Registering QuickUsbPlatform with Windows implementation');
+  
+    QuickUsbPlatform.instance = QuickUsbWindows();
+    _libusb = Libusb(DynamicLibrary.open('libusb-1.0.23.dll'));
+  }
+}
+
+class QuickUsbMacos extends _QuickUsbDesktop {
+  // For example/.dart_tool/flutter_build/generated_main.dart
+ static registerWith() {
+    print('Registering QuickUsbPlatform with MacOS implementation');
+ 
+    QuickUsbPlatform.instance = QuickUsbMacos();
+    _libusb = Libusb(DynamicLibrary.open('libusb-1.0.23.dylib'));
+  }
+}
+
+class QuickUsbLinux extends _QuickUsbDesktop {
+  // For example/.dart_tool/flutter_build/generated_main.dart
+ static registerWith() {
+    print('Registering QuickUsbPlatform with Linux implementation');
+ 
+    QuickUsbPlatform.instance = QuickUsbLinux();
+    _libusb = Libusb(DynamicLibrary.open('${File(Platform.resolvedExecutable).parent.path}/lib/libusb-1.0.23.so'));
+  }
+}*/
+
+
 class QuickUsbWindows extends _QuickUsbDesktop {
   // For example/.dart_tool/flutter_build/generated_main.dart
   QuickUsbWindows() {
@@ -31,18 +64,22 @@ class QuickUsbLinux extends _QuickUsbDesktop {
     _libusb = Libusb(DynamicLibrary.open(
         '${File(Platform.resolvedExecutable).parent.path}/lib/libusb-1.0.23.so'));
   }
-  /*
+  
   static registerWith() {
     QuickUsbPlatform.instance = QuickUsbLinux();
     _libusb = Libusb(DynamicLibrary.open('${File(Platform.resolvedExecutable).parent.path}/lib/libusb-1.0.23.so'));
-  }*/
+  }
 }
+
+
 
 class _QuickUsbDesktop extends QuickUsbPlatform {
   Pointer<libusb_device_handle>? _devHandle;
 
   @override
   Future<bool> init() async {
+    print('QuickUsbDesktop init');
+ 
     return _libusb.libusb_init(nullptr) == libusb_error.LIBUSB_SUCCESS;
   }
 

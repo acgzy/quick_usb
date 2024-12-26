@@ -118,9 +118,11 @@ packages:
   libusb:
     dependency: transitive
     description:
-      path: "C:/code/flutter_project/lib/usb/2libusb_ffi"
-      relative: false
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: "0211331c2163977e2eaf594576180071c6f3d15a"
+      url: "https://github.com/acgzy/libusb_ffi.git"
+    source: git
     version: "0.4.23-dev.1+1"
   lints:
     dependency: transitive

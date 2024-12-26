@@ -12,6 +12,9 @@ export 'src/quick_usb_desktop.dart';
 
 bool _manualDartRegistrationNeeded = true;
 
+//QuickUsbPlatform get _platform => QuickUsbPlatform.instance;
+
+
 QuickUsbPlatform get _platform {
 
   if (_manualDartRegistrationNeeded) {
@@ -31,6 +34,8 @@ QuickUsbPlatform get _platform {
 
   return QuickUsbPlatform.instance;
 }
+
+
 class QuickUsb {
   static Future<bool> init() => _platform.init();
 
